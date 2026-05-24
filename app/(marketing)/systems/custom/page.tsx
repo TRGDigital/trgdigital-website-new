@@ -59,7 +59,7 @@ export default function CustomBuildsPage() {
           <div className="grid gap-6 sm:grid-cols-2">
             {SCENARIOS.map((s, i) => (
               <FadeIn key={s.title} delay={i * 80}>
-                <div className="rounded-lg border border-border bg-surface p-8">
+                <div className="rounded-lg border border-border bg-surface p-8 h-full">
                   <h3 className="text-h3 font-heading font-bold text-ink mb-3">{s.title}</h3>
                   <p className="text-body text-ink-muted leading-relaxed">{s.body}</p>
                 </div>

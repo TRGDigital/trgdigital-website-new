@@ -198,7 +198,7 @@ export default function HomePage() {
           <div className="grid gap-8 sm:grid-cols-2">
             {PILLARS.map((p, i) => (
               <FadeIn key={p.title} delay={i * 80}>
-                <div className="rounded-lg border border-border bg-surface p-8">
+                <div className="rounded-lg border border-border bg-surface p-8 h-full">
                   <h3 className="text-h3 font-heading font-bold text-ink mb-3">{p.title}</h3>
                   <p className="text-body text-ink-muted leading-relaxed">{p.body}</p>
                 </div>
