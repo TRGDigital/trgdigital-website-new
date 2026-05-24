@@ -5,6 +5,7 @@ import { Section } from "@/components/primitives/section"
 import { Container } from "@/components/primitives/container"
 import { CaseStudyCard } from "@/components/cards/case-study-card"
 import { FadeIn } from "@/components/ui/fade-in"
+import { TalkToUsButton } from "@/components/ui/talk-to-us-button"
 
 export const metadata = buildMetadata({
   title: "Custom Builds",
@@ -65,6 +66,11 @@ export default function CustomBuildsPage() {
               </FadeIn>
             ))}
           </div>
+          <FadeIn>
+            <div className="mt-10">
+              <TalkToUsButton subject="Custom build" />
+            </div>
+          </FadeIn>
         </Container>
       </Section>
 

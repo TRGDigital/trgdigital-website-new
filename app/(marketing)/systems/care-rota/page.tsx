@@ -5,6 +5,7 @@ import { FeatureBlock } from "@/components/sections/feature-block"
 import { Section } from "@/components/primitives/section"
 import { Container } from "@/components/primitives/container"
 import { FadeIn } from "@/components/ui/fade-in"
+import { TalkToUsButton } from "@/components/ui/talk-to-us-button"
 
 export const metadata = buildMetadata({
   title: "CareRota — Rota, Time & Attendance and Payroll for Care Homes",
@@ -202,6 +203,11 @@ export default function CareRotaPage() {
               </FadeIn>
             ))}
           </div>
+          <FadeIn>
+            <div className="mt-10">
+              <TalkToUsButton subject="CareRota" />
+            </div>
+          </FadeIn>
         </Container>
       </Section>
 

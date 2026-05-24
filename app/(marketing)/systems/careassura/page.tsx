@@ -5,6 +5,7 @@ import { FeatureBlock } from "@/components/sections/feature-block"
 import { Section } from "@/components/primitives/section"
 import { Container } from "@/components/primitives/container"
 import { FadeIn } from "@/components/ui/fade-in"
+import { TalkToUsButton } from "@/components/ui/talk-to-us-button"
 
 export const metadata = buildMetadata({
   title: "CareAssura — The UK Care Home Directory for Providers and Families",
@@ -101,6 +102,9 @@ export default function CareAssuraPage() {
               <p className="text-body-lg text-ink-muted mt-6 leading-relaxed">
                 At the same time, care homes with outstanding CQC ratings, warm environments, and specialist expertise are invisible online — losing enquiries to providers who simply happen to rank higher. CareAssura fixes both sides of that equation.
               </p>
+              <div className="mt-8">
+                <TalkToUsButton subject="CareAssura" />
+              </div>
             </div>
           </FadeIn>
         </Container>
