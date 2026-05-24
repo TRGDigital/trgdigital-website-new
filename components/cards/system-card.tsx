@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 
 interface SystemCardProps {
@@ -6,9 +7,10 @@ interface SystemCardProps {
   tagline: string
   description: string
   href: string
+  logo?: string
 }
 
-export function SystemCard({ name, tagline, description, href }: SystemCardProps) {
+export function SystemCard({ name, tagline, description, href, logo }: SystemCardProps) {
   return (
     <Link
       href={href}
@@ -16,7 +18,11 @@ export function SystemCard({ name, tagline, description, href }: SystemCardProps
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-h3 font-heading font-bold text-ink">{name}</p>
+          {logo ? (
+            <Image src={logo} alt={name} width={160} height={40} className="h-9 w-auto object-contain mb-1" />
+          ) : (
+            <p className="text-h3 font-heading font-bold text-ink">{name}</p>
+          )}
           <p className="text-small font-medium text-accent mt-1">{tagline}</p>
         </div>
         <ArrowRight

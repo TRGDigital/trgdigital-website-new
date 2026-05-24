@@ -24,6 +24,7 @@ const SYSTEMS = [
     description:
       "A single platform for care notes, medication, staffing, and compliance, built around how your team actually works.",
     href: "/systems/carestream",
+    logo: "/carestream-logo.png",
   },
   {
     name: "CareAssura",
@@ -31,6 +32,7 @@ const SYSTEMS = [
     description:
       "Get found by families searching for care. Detailed profiles, reviews, and local SEO managed from one dashboard.",
     href: "/systems/careassura",
+    logo: "/careassura-logo.png",
   },
   {
     name: "Custom Builds",
