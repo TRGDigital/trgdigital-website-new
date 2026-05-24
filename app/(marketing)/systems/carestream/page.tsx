@@ -454,7 +454,7 @@ export default function CareStreamPage() {
         eyebrow="CQC readiness"
         headline="Turn your audit log into inspection evidence."
         body="CareStream logs every query: who asked, what they asked, which policy was cited, and when. The CQC Readiness Report transforms this log into structured inspection evidence covering policy access by staff, policies not accessed, version history, and regulatory framework activity. Generated on demand and presented in a format an inspector can act on."
-        image={{ src: "/images/feature-careassura.jpg", alt: "Carer in a care home setting", width: 960, height: 560 }}
+        image={{ src: "/images/feature-care-manager.png", alt: "Care manager reviewing a care plan at her desk with residents in the background", width: 960, height: 560 }}
       />
 
       {/* Feature detail 3 — Dashboard */}
