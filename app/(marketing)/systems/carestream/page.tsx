@@ -80,7 +80,7 @@ function WhatsAppMockup() {
   return (
     <div className="flex justify-center lg:justify-end">
       {/* Phone frame */}
-      <div className="relative w-72 rounded-[2.5rem] border-4 border-slate-800 bg-slate-800 shadow-2xl">
+      <div className="relative w-96 rounded-[2.5rem] border-4 border-slate-800 bg-slate-800 shadow-2xl">
         {/* Notch */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-slate-800 rounded-b-2xl z-10" />
         {/* Screen */}
