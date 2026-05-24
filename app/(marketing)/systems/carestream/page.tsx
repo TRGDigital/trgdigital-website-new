@@ -6,6 +6,7 @@ import { FeatureBlock } from "@/components/sections/feature-block"
 import { Section } from "@/components/primitives/section"
 import { Container } from "@/components/primitives/container"
 import { FadeIn } from "@/components/ui/fade-in"
+import { TalkToUsButton } from "@/components/ui/talk-to-us-button"
 
 export const metadata = buildMetadata({
   title: "CareStream — AI-Powered Policy Assistant for Care Homes",
@@ -381,6 +382,9 @@ export default function CareStreamPage() {
               <p className="text-body-lg text-ink-muted mt-4 leading-relaxed">
                 When a manager faces a CQC inspector, the evidence of staff knowledge should not take days to compile. CareStream logs every query automatically, and generates a structured inspection evidence pack on demand.
               </p>
+              <div className="mt-8">
+                <TalkToUsButton subject="CareStream" />
+              </div>
             </FadeIn>
             <FadeIn delay={120}>
               <PolicyMockups />
