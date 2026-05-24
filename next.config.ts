@@ -3,7 +3,7 @@ import createMDX from "@next/mdx";
 
 // Fail fast if someone tries to deploy with the placeholder domain still in place
 if (
-  process.env.NODE_ENV === "production" &&
+  process.env.VERCEL_ENV === "production" &&
   process.env.ALLOW_PLACEHOLDERS !== "true" &&
   (!process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_SITE_URL === "https://trgdigital.example")
 ) {
