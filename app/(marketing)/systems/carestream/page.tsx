@@ -321,6 +321,26 @@ export default function CareStreamPage() {
               <p className="text-h2 font-heading font-bold text-ink leading-snug">
                 When a carer needs to know the falls policy at 2am, they should not have to dig through a filing cabinet.
               </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {[
+                  { flag: "🇬🇧", label: "English" },
+                  { flag: "🇵🇱", label: "Polski" },
+                  { flag: "🇷🇴", label: "Română" },
+                  { flag: "🇵🇭", label: "Tagalog" },
+                  { flag: "🇳🇬", label: "Yoruba" },
+                  { flag: "🇮🇳", label: "हिंदी" },
+                  { flag: "🇸🇦", label: "العربية" },
+                  { flag: "🇧🇬", label: "Български" },
+                  { flag: "🇸🇴", label: "Soomaali" },
+                ].map(({ flag, label }) => (
+                  <span key={label} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1 text-small font-medium text-ink-muted">
+                    {flag} {label}
+                  </span>
+                ))}
+                <span className="inline-flex items-center rounded-full border border-border bg-surface px-3 py-1 text-small font-medium text-ink-muted">
+                  +60 more
+                </span>
+              </div>
               <p className="text-body-lg text-ink-muted mt-6 leading-relaxed">
                 Most care homes store policies in binders, shared drives, or email chains. Staff ask managers the same questions on repeat. Induction evidence is scattered across spreadsheets. CareStream closes all three gaps in one platform.
               </p>
