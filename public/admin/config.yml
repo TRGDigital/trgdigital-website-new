@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: TRGDigital/trg-digital-site
+  repo: TRGDigital/trgdigital-website-new
   branch: main
   auth_endpoint: /api/auth
 
