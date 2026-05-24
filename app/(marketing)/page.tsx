@@ -12,6 +12,7 @@ import { Section } from "@/components/primitives/section"
 import { Container } from "@/components/primitives/container"
 import { FadeIn } from "@/components/ui/fade-in"
 import { getAllPosts, formatDate } from "@/lib/mdx"
+import { TalkToUsButton } from "@/components/ui/talk-to-us-button"
 
 export const metadata: Metadata = {
   title: "TRG Digital: CareTech software for the UK care sector",
@@ -111,6 +112,9 @@ export default function HomePage() {
                 nursing homes, and home-care agencies, building the systems, websites, and tools they
                 need to deliver better care.
               </p>
+              <div className="mt-8">
+                <TalkToUsButton />
+              </div>
             </FadeIn>
             <FadeIn delay={120}>
               <ProductMockups />
