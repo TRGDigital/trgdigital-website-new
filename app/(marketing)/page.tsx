@@ -37,6 +37,13 @@ const SYSTEMS = [
     logo: "/careassura-logo.png",
   },
   {
+    name: "CareRota",
+    tagline: "Rota, attendance & payroll",
+    description:
+      "Dynamic rotas, time-and-attendance reconciliation, and payroll in one platform. Pay what was worked, not what was planned.",
+    href: "/systems/care-rota",
+  },
+  {
     name: "Custom Builds",
     tagline: "Bespoke care software",
     description:

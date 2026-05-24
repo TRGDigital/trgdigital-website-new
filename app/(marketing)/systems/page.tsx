@@ -25,7 +25,7 @@ export default function SystemsPage() {
         variant="type"
         eyebrow="Our systems"
         headline="Software built for the way care actually runs."
-        subheadline="Two proprietary platforms and a custom-build capability, all designed exclusively for the UK care sector."
+        subheadline="Three proprietary platforms and a custom-build capability, all designed exclusively for the UK care sector."
       />
 
       {/* 2, CareStream block */}
@@ -54,7 +54,19 @@ export default function SystemsPage() {
         />
       </Section>
 
-      {/* 4, Custom builds block */}
+      {/* 3b, CareRota block */}
+      <Section variant="alt">
+        <FeatureBlock
+          imageSide="left"
+          eyebrow="CareRota"
+          headline="The rota, attendance, and payroll platform that pays what was worked."
+          body="CareRota links dynamic rota management, time-and-attendance, and payroll into one system — so UK care homes stop paying for hours that weren't worked, catch compliance issues before the rota goes live, and close the gap between planning and reality."
+          cta={{ label: "Explore CareRota", href: "/systems/care-rota" }}
+          image={{ src: "/images/feature-team.jpg", alt: "Care team at work", width: 960, height: 560 }}
+        />
+      </Section>
+
+      {/* 5, Custom builds block */}
       <Section variant="alt">
         <FeatureBlock
           imageSide="left"
