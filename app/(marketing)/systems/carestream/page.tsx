@@ -78,7 +78,7 @@ const WHO = [
 
 function WhatsAppMockup() {
   return (
-    <div className="flex justify-center lg:justify-end">
+    <div className="flex justify-center lg:justify-start">
       {/* Phone frame */}
       <div className="relative w-96 rounded-[2.5rem] border-4 border-slate-800 bg-slate-800 shadow-2xl">
         {/* Notch */}
