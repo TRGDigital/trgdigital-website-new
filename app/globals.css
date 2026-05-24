@@ -1,26 +1,148 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ── Colour ─────────────────────────────────────────────── */
+  --color-surface: #fafaf8;
+  --color-surface-alt: #f0efec;
+  --color-surface-dark: #0f0f0f;
+  --color-ink: #0f0f0f;
+  --color-ink-muted: #555555;
+  --color-ink-subtle: #666666;
+  --color-ink-inverse: #fafaf8;
+  --color-accent: #1f3a3d;
+  --color-accent-hover: #2a4f53;
+  --color-border: #e4e2dc;
+
+  /* ── Typography ─────────────────────────────────────────── */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  /* ── Motion ─────────────────────────────────────────────── */
+  --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-fast: 200ms;
+  --duration-base: 300ms;
+
+  /* ── Keyframe animations ────────────────────────────────── */
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-hero-enter: hero-enter 400ms var(--ease-out-soft) both;
+  --animate-fade-up: fade-up 300ms var(--ease-out-soft) both;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes hero-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Typography scale — fluid clamp (mobile → desktop) ──────
+   display-1:  48px → 96px   lh 1.05
+   display-2:  36px → 64px   lh 1.05
+   h1:         32px → 48px   lh 1.2
+   h2:         24px → 36px   lh 1.2
+   h3:         20px → 24px   lh 1.2
+   body-lg:    18px → 20px   lh 1.6
+   body:       16px → 17px   lh 1.6
+   small:      14px           lh 1.5
+─────────────────────────────────────────────────────────── */
+@utility text-display-1 {
+  font-size: clamp(3rem, calc(1.5rem + 4vw), 6rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+@utility text-display-2 {
+  font-size: clamp(2.25rem, calc(1.5rem + 3vw), 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+@utility text-h1 {
+  font-size: clamp(2rem, calc(1.5rem + 2vw), 3rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+@utility text-h2 {
+  font-size: clamp(1.5rem, calc(1.25rem + 1.5vw), 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+@utility text-h3 {
+  font-size: clamp(1.25rem, calc(1.1rem + 0.75vw), 1.5rem);
+  line-height: 1.2;
+}
+
+@utility text-body-lg {
+  font-size: clamp(1.125rem, calc(1rem + 0.5vw), 1.25rem);
+  line-height: 1.6;
+}
+
+@utility text-body {
+  font-size: clamp(1rem, calc(1rem + 0.05vw), 1.0625rem);
+  line-height: 1.6;
+}
+
+@utility text-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-surface);
+  color: var(--color-ink);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip link — visible only on focus */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--color-accent);
+  color: var(--color-ink-inverse);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0 0 0.25rem 0.25rem;
+  transition: top 0.1s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

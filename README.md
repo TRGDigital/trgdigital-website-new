@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TRG Digital — Marketing Website
 
-## Getting Started
+Next.js 16 App Router · TypeScript · Tailwind CSS v4 · MDX · Resend
 
-First, run the development server:
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env.local   # fill in values
+npm install
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`ALLOW_PLACEHOLDERS=true` is set in `.env.example` so the dev build is not blocked by missing placeholder content.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Required | Description |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | **Production** | Full domain, no trailing slash. e.g. `https://trgdigital.co.uk` |
+| `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | Optional | Plausible site key (e.g. `trgdigital.co.uk`). Omit to disable analytics. |
+| `RESEND_API_KEY` | **Production** | Resend API key — contact form emails |
+| `CONTACT_INBOX` | **Production** | Email address that receives enquiries |
+| `ACKNOWLEDGEMENT_FROM` | **Production** | Verified Resend sender address |
+| `ALLOW_PLACEHOLDERS` | Staging only | Set `true` to skip the domain build guard |
 
-## Learn More
+## Deploying to Vercel
 
-To learn more about Next.js, take a look at the following resources:
+1. Import the repo in the Vercel dashboard
+2. Add all environment variables above under **Settings → Environment Variables**
+3. Set `ALLOW_PLACEHOLDERS` to `true` on Preview deployments, leave unset on Production
+4. Production builds will fail fast if `NEXT_PUBLIC_SITE_URL` is missing or still set to `trgdigital.example`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Pre-launch checklist
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Before setting `ALLOW_PLACEHOLDERS` to false on production, confirm every item in `CONTENT-TODO.md` is resolved.
 
-## Deploy on Vercel
+## Content
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Blog posts live in `content/blog/*.mdx`. Author profiles in `content/authors/*.mdx`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Frontmatter schema for posts:
+
+```yaml
+---
+title: string          # required
+description: string    # required — used for meta description and article card
+publishedAt: YYYY-MM-DD
+author: slug           # matches content/authors/<slug>.mdx
+tags: [string]
+featured: false        # set true to pin to top of blog index
+draft: false           # set true to hide in production builds
+---
+```
+
+## Architecture
+
+```
+app/
+  (marketing)/        # public-facing pages — all statically generated
+  actions/contact.ts  # Server Action — contact form → Resend
+  sitemap.ts          # auto-generated sitemap
+  robots.ts           # robots.txt
+  opengraph-image.tsx # default OG image (1200×630)
+components/
+  chrome/             # header, footer, mobile menu
+  cards/              # article card, team member card
+  sections/           # hero, feature block, etc.
+  mdx/                # MDX custom components (PullQuote, Callout, Figure, Stat)
+  primitives/         # Section, Container layout wrappers
+lib/
+  mdx.ts              # content layer — reads/parses MDX files
+  seo.ts              # SITE config, buildMetadata(), schema builders
+  contact.ts          # Zod schema + types for contact form
+```
