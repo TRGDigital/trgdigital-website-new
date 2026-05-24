@@ -1,0 +1,122 @@
+backend:
+  name: github
+  repo: TRGDigital/trg-digital-site
+  branch: main
+  auth_endpoint: /api/auth
+
+media_folder: public/images/blog
+public_folder: /images/blog
+
+locale: en
+
+collections:
+  # ─── Blog posts ───────────────────────────────────────────────────────────
+  - name: blog
+    label: Blog posts
+    folder: content/blog
+    create: true
+    slug: "{{slug}}"
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Published date, name: publishedAt, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - label: Author
+        name: author
+        widget: relation
+        collection: authors
+        search_fields: [name]
+        value_field: "{{slug}}"
+        display_fields: [name]
+      - label: Tags
+        name: tags
+        widget: list
+        default: []
+        field: { label: Tag, name: tag, widget: string }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Cover image, name: image, widget: image, required: false }
+      - { label: Cover image alt text, name: imageAlt, widget: string, required: false, hint: "Describe the image for screen readers and Google Image Search." }
+      - { label: Draft, name: draft, widget: boolean, default: false, hint: "Drafts are not shown on the live site." }
+      - { label: Body, name: body, widget: markdown }
+
+  # ─── Authors ──────────────────────────────────────────────────────────────
+  - name: authors
+    label: Authors
+    folder: content/authors
+    create: true
+    slug: "{{slug}}"
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Role, name: role, widget: string }
+      - { label: Avatar, name: avatar, widget: image, required: false }
+      - { label: LinkedIn URL, name: linkedin, widget: string, required: false }
+
+  # ─── Page SEO ─────────────────────────────────────────────────────────────
+  - name: pages
+    label: Page SEO
+    files:
+      - label: Home
+        name: home
+        file: content/seo/home.yml
+        fields:
+          - { label: Page title, name: title, widget: string }
+          - { label: Meta description, name: description, widget: text }
+
+      - label: About
+        name: about
+        file: content/seo/about.yml
+        fields:
+          - { label: Page title, name: title, widget: string }
+          - { label: Meta description, name: description, widget: text }
+
+      - label: Systems overview
+        name: systems
+        file: content/seo/systems.yml
+        fields:
+          - { label: Page title, name: title, widget: string }
+          - { label: Meta description, name: description, widget: text }
+
+      - label: CareStream
+        name: carestream
+        file: content/seo/carestream.yml
+        fields:
+          - { label: Page title, name: title, widget: string }
+          - { label: Meta description, name: description, widget: text }
+
+      - label: CareAssura
+        name: careassura
+        file: content/seo/careassura.yml
+        fields:
+          - { label: Page title, name: title, widget: string }
+          - { label: Meta description, name: description, widget: text }
+
+      - label: CareRota
+        name: care-rota
+        file: content/seo/care-rota.yml
+        fields:
+          - { label: Page title, name: title, widget: string }
+          - { label: Meta description, name: description, widget: text }
+
+      - label: Custom Builds
+        name: custom
+        file: content/seo/custom.yml
+        fields:
+          - { label: Page title, name: title, widget: string }
+          - { label: Meta description, name: description, widget: text }
+
+      - label: Blog
+        name: blog
+        file: content/seo/blog.yml
+        fields:
+          - { label: Page title, name: title, widget: string }
+          - { label: Meta description, name: description, widget: text }
+
+      - label: Contact
+        name: contact
+        file: content/seo/contact.yml
+        fields:
+          - { label: Page title, name: title, widget: string }
+          - { label: Meta description, name: description, widget: text }
