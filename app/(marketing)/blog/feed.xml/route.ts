@@ -1,11 +1,10 @@
-import { getAllPosts, formatDate } from "@/lib/mdx"
+import { getAllPosts, formatDate } from "@/lib/blog"
 import { SITE } from "@/lib/seo"
 
-const SITE_URL = SITE.url
-const SITE_NAME = SITE.name
+export const revalidate = 3600
 
 export async function GET() {
-  const posts = getAllPosts()
+  const posts = await getAllPosts()
 
   const items = posts
     .slice(0, 20)
@@ -14,9 +13,9 @@ export async function GET() {
     <item>
       <title><![CDATA[${post.title}]]></title>
       <description><![CDATA[${post.description}]]></description>
-      <link>${SITE_URL}/blog/${post.slug}</link>
-      <guid isPermaLink="true">${SITE_URL}/blog/${post.slug}</guid>
-      <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
+      <link>${SITE.url}/blog/${post.slug}</link>
+      <guid isPermaLink="true">${SITE.url}/blog/${post.slug}</guid>
+      <pubDate>${new Date(post.published_at).toUTCString()}</pubDate>
       ${post.tags.map((tag) => `<category><![CDATA[${tag}]]></category>`).join("\n      ")}
     </item>`
     )
@@ -25,12 +24,12 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>${SITE_NAME}, Insights</title>
-    <link>${SITE_URL}/blog</link>
+    <title>${SITE.name}, Insights</title>
+    <link>${SITE.url}/blog</link>
     <description>Practical thinking on care technology, compliance, and running a better care operation.</description>
     <language>en-gb</language>
-    <atom:link href="${SITE_URL}/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>${posts[0] ? new Date(posts[0].publishedAt).toUTCString() : new Date().toUTCString()}</lastBuildDate>
+    <atom:link href="${SITE.url}/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>${posts[0] ? new Date(posts[0].published_at).toUTCString() : new Date().toUTCString()}</lastBuildDate>
     ${items}
   </channel>
 </rss>`

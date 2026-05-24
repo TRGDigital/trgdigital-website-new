@@ -1,12 +1,12 @@
 import { ImageResponse } from "next/og"
-import { getPostBySlug } from "@/lib/mdx"
+import { getPostBySlug } from "@/lib/blog"
 
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const post = await getPostBySlug(slug)
 
   const title = post?.title ?? "TRG Digital"
   const tag = post?.tags[0] ?? "Insights"
