@@ -408,7 +408,7 @@ export default function CareStreamPage() {
               { step: "03", title: "Get cited answers", body: "CareStream returns a structured answer drawn only from your policies, with the source policy and section cited in every response. No hallucination, no guesswork." },
             ].map((s) => (
               <FadeIn key={s.step}>
-                <div className="rounded-lg border border-border bg-surface p-8">
+                <div className="rounded-lg border border-border bg-surface p-8 h-full">
                   <p className="text-display-1 font-heading font-bold text-accent/30 leading-none mb-4">{s.step}</p>
                   <h3 className="text-h3 font-heading font-bold text-ink mb-3">{s.title}</h3>
                   <p className="text-body text-ink-muted leading-relaxed">{s.body}</p>
