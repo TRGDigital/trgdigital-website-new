@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/hero"
 import { CtaBand } from "@/components/sections/cta-band"
 import { FeatureBlock } from "@/components/sections/feature-block"
 import { Marquee } from "@/components/sections/marquee"
+import { ProductMockups } from "@/components/sections/product-mockups"
 import { SystemCard } from "@/components/cards/system-card"
 import { ArticleCard } from "@/components/cards/article-card"
 import { CaseStudyCard } from "@/components/cards/case-study-card"
@@ -92,17 +93,22 @@ export default function HomePage() {
       {/* 2, Positioning block */}
       <Section variant="default">
         <Container>
-          <FadeIn>
-            {/* PLACEHOLDER: sign-off positioning statement with TRG */}
-            <p className="text-display-2 font-heading font-bold text-ink max-w-4xl">
-              We build software for the way care actually runs, not the way a spreadsheet thinks it does.
-            </p>
-            <p className="text-body-lg text-ink-muted mt-8 max-w-2xl">
-              TRG Digital is a UK CareTech studio. We work exclusively with care-home operators,
-              nursing homes, and home-care agencies, building the systems, websites, and tools they
-              need to deliver better care.
-            </p>
-          </FadeIn>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <FadeIn>
+              {/* PLACEHOLDER: sign-off positioning statement with TRG */}
+              <p className="text-display-2 font-heading font-bold text-ink">
+                We build software for the way care actually runs, not the way a spreadsheet thinks it does.
+              </p>
+              <p className="text-body-lg text-ink-muted mt-8">
+                TRG Digital is a UK CareTech studio. We work exclusively with care-home operators,
+                nursing homes, and home-care agencies, building the systems, websites, and tools they
+                need to deliver better care.
+              </p>
+            </FadeIn>
+            <FadeIn delay={120}>
+              <ProductMockups />
+            </FadeIn>
+          </div>
         </Container>
       </Section>
 
