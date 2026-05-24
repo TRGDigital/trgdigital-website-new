@@ -32,7 +32,7 @@ function CareStreamMockup({ className = "" }: { className?: string }) {
       <div className="flex" style={{ height: 220 }}>
         {/* Sidebar */}
         <div className="w-14 bg-slate-900 flex flex-col items-center py-3 gap-1 shrink-0">
-          <Image src="/carestream-logo.png" alt="CareStream" width={32} height={32} className="w-7 h-7 object-contain mb-2" />
+          <Image src="/carestream-logo.png" alt="CareStream" width={48} height={48} className="w-10 h-10 object-contain mb-2" />
           {[
             { active: true, color: "bg-blue-500" },
             { active: false, color: "bg-slate-700" },
@@ -136,7 +136,7 @@ function CareAssuraMockup({ className = "" }: { className?: string }) {
       <div style={{ height: 220 }} className="overflow-hidden">
         {/* Nav */}
         <div className="flex items-center justify-between px-3 py-2 bg-white border-b border-slate-100">
-          <Image src="/careassura-logo.png" alt="CareAssura" width={72} height={20} className="h-4 w-auto object-contain" />
+          <Image src="/careassura-logo.png" alt="CareAssura" width={110} height={30} className="h-6 w-auto object-contain" />
           <div className="flex items-center gap-2">
             <div className="text-[8px] text-slate-500">Find care</div>
             <div className="text-[8px] text-slate-500">For providers</div>
