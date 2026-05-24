@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { Hero } from "@/components/sections/hero"
 import { CtaBand } from "@/components/sections/cta-band"
 import { FeatureBlock } from "@/components/sections/feature-block"
@@ -43,13 +44,14 @@ const SYSTEMS = [
   },
 ]
 
-const INDUSTRIES = [
-  "Residential care homes",
-  "Nursing homes",
-  "Home-care agencies",
-  "Care groups",
-  "Specialist care",
-  "Supported living",
+const CLIENTS = [
+  { name: "Sea Harbour Nursing Home", logo: "/images/clients/sea-harbour.png" },
+  { name: "Charlotte House Nursing Home", logo: "/images/clients/charlotte-house.png" },
+  { name: "Gateway Care Home", logo: "/images/clients/gateway.png" },
+  { name: "Oakhall Nursing Home", logo: "/images/clients/oakhall.png" },
+  { name: "Sunninghill Care Home", logo: "/images/clients/sunninghill.png" },
+  { name: "Laureate Court Care Home", logo: "/images/clients/laureate-court.png" },
+  { name: "Queen Elizabeth Care Centre", logo: "/images/clients/queen-elizabeth.png" },
 ]
 
 const PILLARS = [
@@ -125,15 +127,17 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* 4, Industries served */}
-      <Marquee>
-        {INDUSTRIES.map((item) => (
-          <span
-            key={item}
-            className="text-h2 font-heading font-bold text-ink whitespace-nowrap"
-          >
-            {item}
-          </span>
+      {/* 4, Client logo marquee */}
+      <Marquee heading="Some of our clients">
+        {CLIENTS.map((client) => (
+          <Image
+            key={client.name}
+            src={client.logo}
+            alt={client.name}
+            width={180}
+            height={60}
+            className="h-12 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+          />
         ))}
       </Marquee>
 
