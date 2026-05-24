@@ -315,7 +315,7 @@ export default function CareStreamPage() {
       {/* Problem */}
       <Section variant="alt">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
             <FadeIn>
               <p className="text-small font-semibold uppercase tracking-widest text-ink-muted mb-4">The problem</p>
               <p className="text-h2 font-heading font-bold text-ink leading-snug">
