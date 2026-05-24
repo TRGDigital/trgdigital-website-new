@@ -59,9 +59,28 @@ const nextConfig: NextConfig = {
     mdxRs: true,
   },
   async headers() {
+    const adminCsp = [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com",
+      "style-src 'self' 'unsafe-inline' https://unpkg.com",
+      "img-src 'self' blob: data: https://*.githubusercontent.com https://avatars.githubusercontent.com",
+      "font-src 'self' https://unpkg.com",
+      "connect-src 'self' https://api.github.com https://github.com https://unpkg.com https://raw.githubusercontent.com",
+      "frame-src 'self'",
+      "object-src 'none'",
+    ].join("; ")
+
     return [
       {
-        source: "/(.*)",
+        source: "/admin/:path*",
+        headers: [
+          { key: "Content-Security-Policy", value: adminCsp },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        ],
+      },
+      {
+        source: "/((?!admin).*)",
         headers: securityHeaders,
       },
     ]
