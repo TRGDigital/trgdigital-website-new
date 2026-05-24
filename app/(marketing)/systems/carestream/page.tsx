@@ -76,96 +76,130 @@ const WHO = [
   },
 ]
 
-function WhatsAppMockup() {
+function PolicyMockups() {
   return (
-    <div className="flex justify-center lg:justify-start">
-      {/* Phone frame */}
-      <div className="relative w-96 rounded-[2.5rem] border-4 border-slate-800 bg-slate-800 shadow-2xl">
-        {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-slate-800 rounded-b-2xl z-10" />
-        {/* Screen */}
-        <div className="rounded-[2rem] overflow-hidden bg-[#ECE5DD]">
-          {/* WhatsApp header */}
-          <div className="bg-[#075E54] px-4 pt-8 pb-3 flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-[#25D366] flex items-center justify-center shrink-0">
-              <span className="text-white text-sm font-bold">CS</span>
-            </div>
-            <div>
-              <p className="text-white text-sm font-semibold leading-tight">CareStream Policies</p>
-              <p className="text-[#B2DFDB] text-xs">online</p>
+    <div className="relative h-[560px]">
+
+      {/* Email mockup — behind, rotated right, offset top-right */}
+      <div className="absolute top-0 right-0 w-[340px] z-10" style={{ transform: "rotate(3deg)" }}>
+        <div className="rounded-xl border border-slate-200 bg-white shadow-xl overflow-hidden">
+          {/* Browser chrome */}
+          <div className="flex items-center gap-1.5 bg-slate-100 border-b border-slate-200 px-3 py-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+            <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
+            <div className="flex-1 mx-2 bg-white rounded border border-slate-200 px-2 py-0.5">
+              <span className="text-[9px] text-slate-400 font-mono">policies@carestream.co.uk</span>
             </div>
           </div>
-
-          {/* Messages */}
-          <div className="px-3 py-4 space-y-3 min-h-[380px]">
-            {/* Staff message */}
-            <div className="flex justify-end">
-              <div className="bg-[#DCF8C6] rounded-2xl rounded-tr-sm px-3 py-2 max-w-[80%] shadow-sm">
-                <p className="text-slate-800 text-xs leading-relaxed">What does our falls policy say about reporting timescales?</p>
-                <p className="text-[10px] text-slate-400 text-right mt-1">09:14 ✓✓</p>
-              </div>
-            </div>
-
-            {/* Typing indicator */}
-            <div className="flex justify-start">
-              <div className="bg-white rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm">
-                <div className="flex gap-1 items-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "0ms" }} />
-                  <div className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "150ms" }} />
-                  <div className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "300ms" }} />
-                </div>
-              </div>
-            </div>
-
-            {/* CareStream reply */}
-            <div className="flex justify-start">
-              <div className="bg-white rounded-2xl rounded-tl-sm px-3 py-2.5 max-w-[88%] shadow-sm">
-                <p className="text-[10px] font-semibold text-[#075E54] mb-1">CareStream Policies</p>
-                <p className="text-slate-800 text-xs leading-relaxed mb-2">
-                  Based on your <span className="font-semibold">Falls Prevention Policy (v4)</span>, all falls must be reported within:
-                </p>
-                <div className="space-y-1 mb-2">
-                  {[
-                    "4 hours via the incident report form",
-                    "24 hours if a hospital admission occurs",
-                    "Immediately to the on-call manager if serious injury",
-                  ].map((item) => (
-                    <div key={item} className="flex gap-1.5 items-start">
-                      <span className="text-[#25D366] text-xs mt-0.5 shrink-0">•</span>
-                      <p className="text-slate-700 text-xs leading-relaxed">{item}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="bg-[#F0F0F0] rounded-lg px-2 py-1.5">
-                  <p className="text-[9px] text-slate-500">Source: Falls Prevention Policy v4, Section 6.2</p>
-                  <p className="text-[9px] text-slate-400">Last updated: January 2025</p>
-                </div>
-                <p className="text-[10px] text-slate-400 text-right mt-1">09:14</p>
-              </div>
-            </div>
-
-            {/* Staff follow-up */}
-            <div className="flex justify-end">
-              <div className="bg-[#DCF8C6] rounded-2xl rounded-tr-sm px-3 py-2 max-w-[80%] shadow-sm">
-                <p className="text-slate-800 text-xs leading-relaxed">Can you send me the full policy?</p>
-                <p className="text-[10px] text-slate-400 text-right mt-1">09:15 ✓✓</p>
-              </div>
-            </div>
+          {/* Email header */}
+          <div className="border-b border-slate-100 px-4 py-3 bg-white">
+            <p className="text-[10px] text-slate-400 mb-0.5">From: <span className="text-slate-600">ana.ionescu@crosswayscare.co.uk</span></p>
+            <p className="text-[10px] text-slate-400 mb-0.5">To: <span className="text-slate-600">policies@carestream.co.uk</span></p>
+            <p className="text-xs font-semibold text-slate-700">Re: Medication administration query</p>
           </div>
-
-          {/* Input bar */}
-          <div className="bg-[#F0F0F0] px-3 py-2 flex items-center gap-2">
-            <div className="flex-1 bg-white rounded-full px-4 py-2">
-              <p className="text-slate-400 text-xs">Message</p>
+          {/* Staff email */}
+          <div className="px-4 py-3 bg-slate-50 border-b border-slate-100">
+            <p className="text-[10px] text-slate-500 mb-1 font-medium">Ana Ionescu · 08:47</p>
+            <p className="text-xs text-slate-700 leading-relaxed">
+              Hi, can you tell me what the procedure is if a resident refuses their morning medication? I need to know who to inform and what to document.
+            </p>
+          </div>
+          {/* CareStream reply */}
+          <div className="px-4 py-3 bg-white">
+            <p className="text-[10px] font-semibold text-blue-700 mb-1">CareStream · 08:47</p>
+            <p className="text-xs text-slate-700 leading-relaxed mb-2">
+              Based on your <span className="font-semibold">Medication Management Policy (v6)</span>, if a resident refuses medication you should:
+            </p>
+            <div className="space-y-1 mb-3">
+              {[
+                "Record the refusal in the eMAR with the reason given",
+                "Notify the nurse in charge immediately",
+                "Document in the care notes and inform the GP if repeated",
+              ].map((item) => (
+                <div key={item} className="flex gap-1.5 items-start">
+                  <span className="text-blue-500 text-xs shrink-0 mt-0.5">•</span>
+                  <p className="text-[11px] text-slate-600 leading-relaxed">{item}</p>
+                </div>
+              ))}
             </div>
-            <div className="w-9 h-9 rounded-full bg-[#25D366] flex items-center justify-center shrink-0">
-              <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-              </svg>
+            <div className="bg-blue-50 border border-blue-100 rounded-lg px-3 py-2">
+              <p className="text-[9px] font-semibold text-blue-600">Source: Medication Management Policy v6, Section 4.3</p>
+              <p className="text-[9px] text-blue-400">Confidence: high · Last updated: March 2025</p>
             </div>
           </div>
         </div>
       </div>
+
+      {/* WhatsApp phone — front, rotated left, bottom-left */}
+      <div className="absolute bottom-0 left-0 z-20" style={{ transform: "rotate(-2deg)" }}>
+        <div className="relative w-[240px] rounded-[2rem] border-4 border-slate-800 bg-slate-800 shadow-2xl">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-5 bg-slate-800 rounded-b-xl z-10" />
+          <div className="rounded-[1.6rem] overflow-hidden bg-[#ECE5DD]">
+            <div className="bg-[#075E54] px-3 pt-6 pb-2.5 flex items-center gap-2">
+              <div className="w-7 h-7 rounded-full bg-[#25D366] flex items-center justify-center shrink-0">
+                <span className="text-white text-[10px] font-bold">CS</span>
+              </div>
+              <div>
+                <p className="text-white text-[11px] font-semibold leading-tight">CareStream Policies</p>
+                <p className="text-[#B2DFDB] text-[9px]">online</p>
+              </div>
+            </div>
+            <div className="px-2.5 py-3 space-y-2.5 min-h-[280px]">
+              <div className="flex justify-end">
+                <div className="bg-[#DCF8C6] rounded-2xl rounded-tr-sm px-2.5 py-1.5 max-w-[82%] shadow-sm">
+                  <p className="text-slate-800 text-[10px] leading-relaxed">What does our falls policy say about reporting timescales?</p>
+                  <p className="text-[9px] text-slate-400 text-right mt-0.5">09:14 ✓✓</p>
+                </div>
+              </div>
+              <div className="flex justify-start">
+                <div className="bg-white rounded-2xl rounded-tl-sm px-3 py-2 shadow-sm">
+                  <div className="flex gap-1 items-center">
+                    <div className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "0ms" }} />
+                    <div className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "150ms" }} />
+                    <div className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: "300ms" }} />
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-start">
+                <div className="bg-white rounded-2xl rounded-tl-sm px-2.5 py-2 max-w-[90%] shadow-sm">
+                  <p className="text-[9px] font-semibold text-[#075E54] mb-1">CareStream Policies</p>
+                  <p className="text-slate-800 text-[10px] leading-relaxed mb-1.5">
+                    Based on your <span className="font-semibold">Falls Prevention Policy (v4)</span>:
+                  </p>
+                  <div className="space-y-1 mb-1.5">
+                    {[
+                      "4 hours — incident report form",
+                      "24 hours — if hospital admission",
+                      "Immediately — if serious injury",
+                    ].map((item) => (
+                      <div key={item} className="flex gap-1 items-start">
+                        <span className="text-[#25D366] text-[10px] shrink-0">•</span>
+                        <p className="text-slate-700 text-[10px] leading-relaxed">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="bg-[#F0F0F0] rounded px-1.5 py-1">
+                    <p className="text-[8px] text-slate-500">Falls Prevention Policy v4, Section 6.2</p>
+                  </div>
+                  <p className="text-[9px] text-slate-400 text-right mt-0.5">09:14</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-[#F0F0F0] px-2.5 py-1.5 flex items-center gap-1.5">
+              <div className="flex-1 bg-white rounded-full px-3 py-1.5">
+                <p className="text-slate-400 text-[10px]">Message</p>
+              </div>
+              <div className="w-7 h-7 rounded-full bg-[#25D366] flex items-center justify-center shrink-0">
+                <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   )
 }
@@ -349,7 +383,7 @@ export default function CareStreamPage() {
               </p>
             </FadeIn>
             <FadeIn delay={120}>
-              <WhatsAppMockup />
+              <PolicyMockups />
             </FadeIn>
           </div>
         </Container>
