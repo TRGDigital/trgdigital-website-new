@@ -19,7 +19,7 @@ export function SystemCard({ name, tagline, description, href, logo }: SystemCar
       <div className="flex items-start justify-between gap-4">
         <div>
           {logo ? (
-            <Image src={logo} alt={name} width={160} height={40} className="h-9 w-auto object-contain mb-1" />
+            <Image src={logo} alt={name} width={220} height={56} className="h-14 w-auto object-contain mb-1" />
           ) : (
             <p className="text-h3 font-heading font-bold text-ink">{name}</p>
           )}
