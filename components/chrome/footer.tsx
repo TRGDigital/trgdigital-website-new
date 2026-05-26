@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Mail, Phone } from "lucide-react"
+import { getAllPublishedPages } from "@/lib/pages"
 
 function LinkedInIcon({ size = 14 }: { size?: number }) {
   return (
@@ -31,7 +32,8 @@ const SYSTEM_LINKS = [
   { label: "Custom Builds", href: "/systems/custom" },
 ]
 
-export function Footer() {
+export async function Footer() {
+  const legalPages = await getAllPublishedPages()
   return (
     <footer className="bg-surface-dark text-ink-inverse">
       <div className="mx-auto w-full max-w-[90rem] px-6 lg:px-20">
@@ -144,18 +146,15 @@ export function Footer() {
             © {new Date().getFullYear()} TRG Digital. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-4">
-            <Link
-              href="/privacy"
-              className="text-small text-ink-inverse/50 transition-colors hover:text-ink-inverse focus:outline-2 focus:outline-offset-2 focus:outline-accent rounded-sm"
-            >
-              Privacy
-            </Link>
-            <Link
-              href="/cookies"
-              className="text-small text-ink-inverse/50 transition-colors hover:text-ink-inverse focus:outline-2 focus:outline-offset-2 focus:outline-accent rounded-sm"
-            >
-              Cookies
-            </Link>
+            {legalPages.map((page) => (
+              <Link
+                key={page.slug}
+                href={`/${page.slug}`}
+                className="text-small text-ink-inverse/50 transition-colors hover:text-ink-inverse focus:outline-2 focus:outline-offset-2 focus:outline-accent rounded-sm"
+              >
+                {page.title}
+              </Link>
+            ))}
             {/* PLACEHOLDER: ICO registration number */}
             <span className="text-small text-ink-inverse/50">ICO: [PLACEHOLDER]</span>
           </div>

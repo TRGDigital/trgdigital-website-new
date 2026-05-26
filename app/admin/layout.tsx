@@ -7,6 +7,7 @@ import { getBrowserClient } from "@/lib/supabase-browser"
 const navItems = [
   { label: "Posts", href: "/admin/posts" },
   { label: "Authors", href: "/admin/authors" },
+  { label: "Pages", href: "/admin/pages" },
   { label: "Page SEO", href: "/admin/page-seo" },
 ]
 
