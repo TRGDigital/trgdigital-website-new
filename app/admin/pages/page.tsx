@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { getBrowserClient } from "@/lib/supabase-browser"
+import { revalidateSite } from "@/app/actions/revalidate"
 import type { Page } from "@/lib/pages"
 
 export default function AdminPagesPage() {
@@ -23,6 +24,7 @@ export default function AdminPagesPage() {
     if (!confirm("Delete this page?")) return
     const supabase = getBrowserClient()
     await supabase.from("pages").delete().eq("id", id)
+    await revalidateSite()
     setPages((prev) => prev.filter((p) => p.id !== id))
   }
 

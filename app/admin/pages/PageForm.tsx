@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Check, ChevronDown, ChevronRight } from "lucide-react"
 import { getBrowserClient } from "@/lib/supabase-browser"
+import { revalidateSite } from "@/app/actions/revalidate"
 import { MDEditor } from "../posts/MdEditor"
 import type { Page } from "@/lib/pages"
 
@@ -118,6 +119,7 @@ export function PageForm({ page }: { page?: Page }) {
       setError(res.error.message)
       setSaving(false)
     } else {
+      await revalidateSite()
       router.push("/admin/pages")
     }
   }
