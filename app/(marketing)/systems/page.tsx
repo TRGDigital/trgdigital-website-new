@@ -15,103 +15,122 @@ function SystemsHeroMockup() {
   const products = [
     {
       name: "CareStream",
-      tagline: "AI policy assistant",
+      tagline: "AI-powered policy assistant",
       icon: "💬",
-      accent: "bg-blue-500",
+      accentBar: "bg-blue-500",
       light: "bg-blue-50",
       border: "border-blue-100",
       text: "text-blue-700",
       stat: "34 queries today",
+      bars: [40, 65, 50, 80, 72, 90, 60],
+      barColor: "bg-blue-400",
     },
     {
       name: "CareAssura",
       tagline: "Care home directory",
       icon: "🏠",
-      accent: "bg-green-500",
+      accentBar: "bg-green-500",
       light: "bg-green-50",
       border: "border-green-100",
       text: "text-green-700",
-      stat: "12 profile views",
+      stat: "84 profile views",
+      bars: [30, 50, 45, 60, 55, 75, 70],
+      barColor: "bg-green-400",
     },
     {
       name: "CareRota",
-      tagline: "Rota & payroll",
+      tagline: "Rota, attendance & payroll",
       icon: "📅",
-      accent: "bg-purple-500",
+      accentBar: "bg-purple-500",
       light: "bg-purple-50",
       border: "border-purple-100",
       text: "text-purple-700",
-      stat: "Rota published",
+      stat: "Rota live · 41 staff",
+      bars: [60, 60, 80, 60, 90, 60, 85],
+      barColor: "bg-purple-400",
     },
     {
       name: "[PRODUCT NAME]",
-      tagline: "Enquiry generation",
+      tagline: "On-demand enquiry generation",
       icon: "🎚️",
-      accent: "bg-amber-500",
+      accentBar: "bg-amber-500",
       light: "bg-amber-50",
       border: "border-amber-100",
       text: "text-amber-700",
       stat: "7 new enquiries",
+      bars: [20, 40, 35, 55, 50, 70, 65],
+      barColor: "bg-amber-400",
     },
   ]
 
   return (
     <div className="rounded-xl border border-slate-200 bg-white shadow-2xl overflow-hidden">
       {/* Browser chrome */}
-      <div className="flex items-center gap-1.5 bg-slate-100 border-b border-slate-200 px-3 py-2.5">
-        <span className="w-3 h-3 rounded-full bg-red-400" />
-        <span className="w-3 h-3 rounded-full bg-amber-400" />
-        <span className="w-3 h-3 rounded-full bg-green-400" />
-        <div className="flex-1 mx-2 bg-white rounded-md border border-slate-200 flex items-center gap-1.5 px-2 py-1">
-          <div className="w-2 h-2 rounded-full border border-slate-300" />
-          <span className="text-[9px] text-slate-400 font-mono">trgdigital.co.uk/portal</span>
+      <div className="flex items-center gap-2 bg-slate-100 border-b border-slate-200 px-4 py-3">
+        <span className="w-3.5 h-3.5 rounded-full bg-red-400" />
+        <span className="w-3.5 h-3.5 rounded-full bg-amber-400" />
+        <span className="w-3.5 h-3.5 rounded-full bg-green-400" />
+        <div className="flex-1 mx-3 bg-white rounded-md border border-slate-200 flex items-center gap-2 px-3 py-1.5">
+          <div className="w-2.5 h-2.5 rounded-full border border-slate-300" />
+          <span className="text-xs text-slate-400 font-mono">trgdigital.co.uk/portal</span>
         </div>
       </div>
-      {/* Portal header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-slate-900 border-b border-slate-700">
-        <div className="flex items-center gap-2">
-          <div className="w-5 h-5 rounded bg-blue-500 flex items-center justify-center">
-            <span className="text-white text-[9px] font-bold">T</span>
+
+      {/* Portal nav */}
+      <div className="flex items-center justify-between px-5 py-3.5 bg-slate-900 border-b border-slate-700">
+        <div className="flex items-center gap-2.5">
+          <div className="w-7 h-7 rounded-lg bg-blue-500 flex items-center justify-center shrink-0">
+            <span className="text-white text-xs font-bold">T</span>
           </div>
-          <span className="text-[10px] font-semibold text-white">TRG Digital</span>
+          <span className="text-sm font-semibold text-white">TRG Digital</span>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="text-[8px] bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full font-medium">All systems active</span>
-          <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center">
-            <div className="w-2.5 h-2.5 rounded-full bg-slate-400" />
-          </div>
-        </div>
+        <span className="text-xs bg-green-500/20 text-green-400 border border-green-500/30 px-2.5 py-1 rounded-full font-medium">
+          All systems active
+        </span>
       </div>
+
       {/* Product grid */}
-      <div className="p-4 bg-slate-50">
-        <p className="text-[8px] font-semibold uppercase tracking-widest text-slate-400 mb-3">Your platforms</p>
-        <div className="grid grid-cols-2 gap-3">
+      <div className="p-5 bg-slate-50">
+        <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">Your platforms</p>
+        <div className="grid grid-cols-2 gap-4">
           {products.map((p) => (
-            <div key={p.name} className={`rounded-lg border ${p.border} bg-white p-3`}>
-              <div className="flex items-start justify-between mb-2">
-                <div className={`w-7 h-7 rounded-lg ${p.light} flex items-center justify-center text-sm`}>
+            <div key={p.name} className={`rounded-xl border ${p.border} bg-white p-4`}>
+              <div className="flex items-start justify-between mb-3">
+                <div className={`w-10 h-10 rounded-xl ${p.light} flex items-center justify-center text-xl`}>
                   {p.icon}
                 </div>
-                <span className={`text-[7px] ${p.light} ${p.text} font-semibold px-1.5 py-0.5 rounded-full border ${p.border}`}>Active</span>
+                <span className={`text-[10px] ${p.light} ${p.text} font-semibold px-2 py-0.5 rounded-full border ${p.border}`}>
+                  Active
+                </span>
               </div>
-              <p className="text-[9px] font-bold text-slate-800 leading-none">{p.name}</p>
-              <p className="text-[7px] text-slate-400 mt-0.5 mb-2">{p.tagline}</p>
-              <div className={`h-0.5 w-full rounded-full ${p.accent} opacity-30 mb-2`} />
-              <p className={`text-[7px] font-medium ${p.text}`}>{p.stat}</p>
+              <p className="text-sm font-bold text-slate-800 leading-tight">{p.name}</p>
+              <p className="text-xs text-slate-400 mt-0.5 mb-3">{p.tagline}</p>
+              {/* Mini bar chart */}
+              <div className="flex items-end gap-0.5 h-8 mb-2">
+                {p.bars.map((h, i) => (
+                  <div
+                    key={i}
+                    className={`flex-1 rounded-sm ${p.barColor} opacity-60`}
+                    style={{ height: `${h}%` }}
+                  />
+                ))}
+              </div>
+              <p className={`text-xs font-semibold ${p.text}`}>{p.stat}</p>
             </div>
           ))}
         </div>
-        {/* Footer stat bar */}
-        <div className="mt-3 flex items-center justify-between bg-white border border-slate-100 rounded-lg px-3 py-2">
+
+        {/* Stat bar */}
+        <div className="mt-4 grid grid-cols-4 gap-3">
           {[
-            { label: "Staff using systems", val: "127" },
+            { label: "Staff active", val: "127" },
             { label: "Queries answered", val: "2,841" },
             { label: "Beds filled", val: "18" },
             { label: "CQC reports", val: "6" },
           ].map((s) => (
-            <div key={s.label} className="text-center">
-              <p className="text-[10px] font-bold text-slate-700">{s.val}</p>
-              <p className="text-[6px] text-slate-400">{s.label}</p>
+            <div key={s.label} className="bg-white border border-slate-100 rounded-lg px-3 py-2.5 text-center">
+              <p className="text-sm font-bold text-slate-700">{s.val}</p>
+              <p className="text-[10px] text-slate-400 mt-0.5">{s.label}</p>
             </div>
           ))}
         </div>
