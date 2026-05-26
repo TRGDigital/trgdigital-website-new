@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { buildMetadata } from "@/lib/seo"
 import { CtaBand } from "@/components/sections/cta-band"
 import { FeatureBlock } from "@/components/sections/feature-block"
@@ -16,7 +17,7 @@ function SystemsHeroMockup() {
     {
       name: "CareStream",
       tagline: "AI-powered policy assistant",
-      icon: "💬",
+      logo: { src: "/carestream-logo.png", width: 434, height: 130 },
       accentBar: "bg-blue-500",
       light: "bg-blue-50",
       border: "border-blue-100",
@@ -28,7 +29,7 @@ function SystemsHeroMockup() {
     {
       name: "CareAssura",
       tagline: "Care home directory",
-      icon: "🏠",
+      logo: { src: "/careassura-logo.png", width: 449, height: 266 },
       accentBar: "bg-green-500",
       light: "bg-green-50",
       border: "border-green-100",
@@ -40,7 +41,7 @@ function SystemsHeroMockup() {
     {
       name: "CareRota",
       tagline: "Rota, attendance & payroll",
-      icon: "📅",
+      logo: null,
       accentBar: "bg-purple-500",
       light: "bg-purple-50",
       border: "border-purple-100",
@@ -52,7 +53,7 @@ function SystemsHeroMockup() {
     {
       name: "[PRODUCT NAME]",
       tagline: "On-demand enquiry generation",
-      icon: "🎚️",
+      logo: null,
       accentBar: "bg-amber-500",
       light: "bg-amber-50",
       border: "border-amber-100",
@@ -96,14 +97,22 @@ function SystemsHeroMockup() {
           {products.map((p) => (
             <div key={p.name} className={`rounded-xl border ${p.border} bg-white p-4`}>
               <div className="flex items-start justify-between mb-3">
-                <div className={`w-10 h-10 rounded-xl ${p.light} flex items-center justify-center text-xl`}>
-                  {p.icon}
-                </div>
-                <span className={`text-[10px] ${p.light} ${p.text} font-semibold px-2 py-0.5 rounded-full border ${p.border}`}>
+                {p.logo ? (
+                  <Image
+                    src={p.logo.src}
+                    alt={p.name}
+                    width={p.logo.width}
+                    height={p.logo.height}
+                    className="h-8 w-auto object-contain"
+                  />
+                ) : (
+                  <p className="text-sm font-bold text-slate-800">{p.name}</p>
+                )}
+                <span className={`text-[10px] ${p.light} ${p.text} font-semibold px-2 py-0.5 rounded-full border ${p.border} shrink-0 ml-2`}>
                   Active
                 </span>
               </div>
-              <p className="text-sm font-bold text-slate-800 leading-tight">{p.name}</p>
+              {p.logo && <p className="text-sm font-bold text-slate-800 leading-tight">{p.name}</p>}
               <p className="text-xs text-slate-400 mt-0.5 mb-3">{p.tagline}</p>
               {/* Mini bar chart */}
               <div className="flex items-end gap-0.5 h-8 mb-2">
