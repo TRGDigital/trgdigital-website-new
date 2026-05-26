@@ -15,6 +15,11 @@ export type Author = {
   created_at: string
 }
 
+export type Faq = {
+  question: string
+  answer: string
+}
+
 export type Post = {
   id: string
   title: string
@@ -29,6 +34,7 @@ export type Post = {
   image: string | null
   image_alt: string | null
   draft: boolean
+  faqs: Faq[]
   created_at: string
   updated_at: string
 }
