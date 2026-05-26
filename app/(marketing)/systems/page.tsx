@@ -17,7 +17,7 @@ function SystemsHeroMockup() {
     {
       name: "CareStream",
       tagline: "AI-powered policy assistant",
-      logo: { src: "/carestream-logo.png", width: 434, height: 130 },
+      logo: { src: "/carestream-logo.png", width: 434, height: 130, className: "h-8 w-auto object-contain" },
       accentBar: "bg-blue-500",
       light: "bg-blue-50",
       border: "border-blue-100",
@@ -29,7 +29,7 @@ function SystemsHeroMockup() {
     {
       name: "CareAssura",
       tagline: "Care home directory",
-      logo: { src: "/careassura-logo.png", width: 449, height: 266 },
+      logo: { src: "/careassura-logo.png", width: 449, height: 266, className: "h-14 w-auto object-contain" },
       accentBar: "bg-green-500",
       light: "bg-green-50",
       border: "border-green-100",
@@ -103,7 +103,7 @@ function SystemsHeroMockup() {
                     alt={p.name}
                     width={p.logo.width}
                     height={p.logo.height}
-                    className="h-8 w-auto object-contain"
+                    className={p.logo.className}
                   />
                 ) : (
                   <p className="text-sm font-bold text-slate-800">{p.name}</p>
