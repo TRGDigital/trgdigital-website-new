@@ -139,71 +139,59 @@ export default function SystemsPage() {
             Four proprietary platforms and a custom-build capability, all designed exclusively for the UK care sector.
           </p>
         </div>
-        <div className="order-1 flex items-center justify-center bg-surface-alt px-8 py-12 lg:order-2 lg:px-16">
+        <div className="order-1 flex items-center justify-center bg-surface-alt px-4 py-8 lg:order-2 lg:px-10 lg:py-12">
           <SystemsHeroMockup />
         </div>
       </div>
 
       {/* 2, CareStream block */}
-      {/* PLACEHOLDER: real CareStream copy, logo, screenshot */}
-      <Section variant="alt">
-        <FeatureBlock
-          imageSide="left"
-          logo={{ src: "/carestream-logo.png", alt: "CareStream AI", width: 434, height: 130 }}
-          headline="The care management platform built around your staff."
-          body="CareStream gives your care team instant, accurate answers to policy questions — by chat or email, grounded in your own uploaded documents and cited back to the source. Staff ask in any of 70+ languages, every query is logged automatically, and a CQC inspection evidence pack is generated on demand."
-          cta={{ label: "Explore CareStream", href: "/systems/carestream" }}
-          image={{ src: "/images/hero-carestream.jpg", alt: "Caregiver supporting a patient", width: 960, height: 560 }}
-        />
-      </Section>
+      <FeatureBlock
+        imageSide="left"
+        logo={{ src: "/carestream-logo.png", alt: "CareStream AI", width: 434, height: 130 }}
+        headline="The care management platform built around your staff."
+        body="CareStream gives your care team instant, accurate answers to policy questions — by chat or email, grounded in your own uploaded documents and cited back to the source. Staff ask in any of 70+ languages, every query is logged automatically, and a CQC inspection evidence pack is generated on demand."
+        cta={{ label: "Explore CareStream", href: "/systems/carestream" }}
+        image={{ src: "/images/hero-carestream.jpg", alt: "Caregiver supporting a patient", width: 960, height: 560 }}
+      />
 
       {/* 3, CareAssura block */}
-      {/* PLACEHOLDER: real CareAssura copy, logo, screenshot */}
-      <Section variant="default">
-        <FeatureBlock
-          imageSide="right"
-          logo={{ src: "/careassura-logo.png", alt: "CareAssura", width: 449, height: 266 }}
-          headline="Get found by families who need you."
-          body="CareAssura gives your home a managed directory profile that ranks in local search, so families looking for care in your area find you before they find your competitors. Rich care home profiles, review management, an interactive map explorer, and a provider dashboard — all built to turn online visibility into enquiries."
-          cta={{ label: "Explore CareAssura", href: "/systems/careassura" }}
-          image={{ src: "/images/hero-careassura.jpg", alt: "Team collaborating on care planning", width: 960, height: 560 }}
-        />
-      </Section>
+      <FeatureBlock
+        imageSide="right"
+        logo={{ src: "/careassura-logo.png", alt: "CareAssura", width: 449, height: 266 }}
+        headline="Get found by families who need you."
+        body="CareAssura gives your home a managed directory profile that ranks in local search, so families looking for care in your area find you before they find your competitors. Rich care home profiles, review management, an interactive map explorer, and a provider dashboard — all built to turn online visibility into enquiries."
+        cta={{ label: "Explore CareAssura", href: "/systems/careassura" }}
+        image={{ src: "/images/hero-careassura.jpg", alt: "Team collaborating on care planning", width: 960, height: 560 }}
+      />
 
       {/* 3b, CareRota block */}
-      <Section variant="alt">
-        <FeatureBlock
-          imageSide="left"
-          eyebrow="CareRota"
-          headline="The rota, attendance, and payroll platform that pays what was worked."
-          body="CareRota links dynamic rota management, time-and-attendance, and payroll into one system — so UK care homes stop paying for hours that weren't worked, catch compliance issues before the rota goes live, and close the gap between planning and reality."
-          cta={{ label: "Explore CareRota", href: "/systems/care-rota" }}
-          image={{ src: "/images/feature-team.jpg", alt: "Care team at work", width: 960, height: 560 }}
-        />
-      </Section>
+      <FeatureBlock
+        imageSide="left"
+        eyebrow="CareRota"
+        headline="The rota, attendance, and payroll platform that pays what was worked."
+        body="CareRota links dynamic rota management, time-and-attendance, and payroll into one system — so UK care homes stop paying for hours that weren't worked, catch compliance issues before the rota goes live, and close the gap between planning and reality."
+        cta={{ label: "Explore CareRota", href: "/systems/care-rota" }}
+        image={{ src: "/images/feature-team.jpg", alt: "Care team at work", width: 960, height: 560 }}
+      />
 
       {/* 4, [PRODUCT NAME] block */}
-      <Section variant="default">
-        <FeatureBlock
-          imageSide="right"
-          eyebrow="[PRODUCT NAME]"
-          headline="Fill empty beds on demand, not on hope."
-          body="[PRODUCT NAME] connects your home directly to families actively searching for care in your area. Turn your listing on when you have beds to fill and off when you're full — paying only for the enquiries you receive. Every lead arrives pre-qualified with the family's care needs, urgency, and budget, so your team knows before they pick up the phone."
-          cta={{ label: "Explore [PRODUCT NAME]", href: "/systems/on-demand-enquiry" }}
-        />
-      </Section>
+      <FeatureBlock
+        imageSide="right"
+        eyebrow="[PRODUCT NAME]"
+        headline="Fill empty beds on demand, not on hope."
+        body="[PRODUCT NAME] connects your home directly to families actively searching for care in your area. Turn your listing on when you have beds to fill and off when you're full — paying only for the enquiries you receive. Every lead arrives pre-qualified with the family's care needs, urgency, and budget, so your team knows before they pick up the phone."
+        cta={{ label: "Explore [PRODUCT NAME]", href: "/systems/on-demand-enquiry" }}
+      />
 
       {/* 5, Custom builds block */}
-      <Section variant="alt">
-        <FeatureBlock
-          imageSide="left"
-          eyebrow="Custom builds"
-          headline="When off-the-shelf doesn't fit."
-          body="Some care operations have workflows so specific that no existing product covers them. When that's the case, we build the system from scratch, scoped to your processes, integrated with your existing tools."
-          cta={{ label: "Learn about custom builds", href: "/systems/custom" }}
-          image={{ src: "/images/feature-team.jpg", alt: "Development team at work", width: 960, height: 560 }}
-        />
-      </Section>
+      <FeatureBlock
+        imageSide="left"
+        eyebrow="Custom builds"
+        headline="When off-the-shelf doesn't fit."
+        body="Some care operations have workflows so specific that no existing product covers them. When that's the case, we build the system from scratch, scoped to your processes, integrated with your existing tools."
+        cta={{ label: "Learn about custom builds", href: "/systems/custom" }}
+        image={{ src: "/images/feature-team.jpg", alt: "Development team at work", width: 960, height: 560 }}
+      />
 
       {/* 5, Integrations / compliance */}
       <Section variant="default">
