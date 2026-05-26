@@ -1,5 +1,4 @@
 import { buildMetadata } from "@/lib/seo"
-import { Hero } from "@/components/sections/hero"
 import { CtaBand } from "@/components/sections/cta-band"
 import { FeatureBlock } from "@/components/sections/feature-block"
 import { Section } from "@/components/primitives/section"
@@ -12,6 +11,115 @@ export const metadata = buildMetadata({
   path: "/systems",
 })
 
+function SystemsHeroMockup() {
+  const products = [
+    {
+      name: "CareStream",
+      tagline: "AI policy assistant",
+      icon: "💬",
+      accent: "bg-blue-500",
+      light: "bg-blue-50",
+      border: "border-blue-100",
+      text: "text-blue-700",
+      stat: "34 queries today",
+    },
+    {
+      name: "CareAssura",
+      tagline: "Care home directory",
+      icon: "🏠",
+      accent: "bg-green-500",
+      light: "bg-green-50",
+      border: "border-green-100",
+      text: "text-green-700",
+      stat: "12 profile views",
+    },
+    {
+      name: "CareRota",
+      tagline: "Rota & payroll",
+      icon: "📅",
+      accent: "bg-purple-500",
+      light: "bg-purple-50",
+      border: "border-purple-100",
+      text: "text-purple-700",
+      stat: "Rota published",
+    },
+    {
+      name: "[PRODUCT NAME]",
+      tagline: "Enquiry generation",
+      icon: "🎚️",
+      accent: "bg-amber-500",
+      light: "bg-amber-50",
+      border: "border-amber-100",
+      text: "text-amber-700",
+      stat: "7 new enquiries",
+    },
+  ]
+
+  return (
+    <div className="rounded-xl border border-slate-200 bg-white shadow-2xl overflow-hidden">
+      {/* Browser chrome */}
+      <div className="flex items-center gap-1.5 bg-slate-100 border-b border-slate-200 px-3 py-2.5">
+        <span className="w-3 h-3 rounded-full bg-red-400" />
+        <span className="w-3 h-3 rounded-full bg-amber-400" />
+        <span className="w-3 h-3 rounded-full bg-green-400" />
+        <div className="flex-1 mx-2 bg-white rounded-md border border-slate-200 flex items-center gap-1.5 px-2 py-1">
+          <div className="w-2 h-2 rounded-full border border-slate-300" />
+          <span className="text-[9px] text-slate-400 font-mono">trgdigital.co.uk/portal</span>
+        </div>
+      </div>
+      {/* Portal header */}
+      <div className="flex items-center justify-between px-4 py-3 bg-slate-900 border-b border-slate-700">
+        <div className="flex items-center gap-2">
+          <div className="w-5 h-5 rounded bg-blue-500 flex items-center justify-center">
+            <span className="text-white text-[9px] font-bold">T</span>
+          </div>
+          <span className="text-[10px] font-semibold text-white">TRG Digital</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-[8px] bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full font-medium">All systems active</span>
+          <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center">
+            <div className="w-2.5 h-2.5 rounded-full bg-slate-400" />
+          </div>
+        </div>
+      </div>
+      {/* Product grid */}
+      <div className="p-4 bg-slate-50">
+        <p className="text-[8px] font-semibold uppercase tracking-widest text-slate-400 mb-3">Your platforms</p>
+        <div className="grid grid-cols-2 gap-3">
+          {products.map((p) => (
+            <div key={p.name} className={`rounded-lg border ${p.border} bg-white p-3`}>
+              <div className="flex items-start justify-between mb-2">
+                <div className={`w-7 h-7 rounded-lg ${p.light} flex items-center justify-center text-sm`}>
+                  {p.icon}
+                </div>
+                <span className={`text-[7px] ${p.light} ${p.text} font-semibold px-1.5 py-0.5 rounded-full border ${p.border}`}>Active</span>
+              </div>
+              <p className="text-[9px] font-bold text-slate-800 leading-none">{p.name}</p>
+              <p className="text-[7px] text-slate-400 mt-0.5 mb-2">{p.tagline}</p>
+              <div className={`h-0.5 w-full rounded-full ${p.accent} opacity-30 mb-2`} />
+              <p className={`text-[7px] font-medium ${p.text}`}>{p.stat}</p>
+            </div>
+          ))}
+        </div>
+        {/* Footer stat bar */}
+        <div className="mt-3 flex items-center justify-between bg-white border border-slate-100 rounded-lg px-3 py-2">
+          {[
+            { label: "Staff using systems", val: "127" },
+            { label: "Queries answered", val: "2,841" },
+            { label: "Beds filled", val: "18" },
+            { label: "CQC reports", val: "6" },
+          ].map((s) => (
+            <div key={s.label} className="text-center">
+              <p className="text-[10px] font-bold text-slate-700">{s.val}</p>
+              <p className="text-[6px] text-slate-400">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // PLACEHOLDER: real integration logos from TRG
 const INTEGRATIONS = [
   "eMAR", "Rostering", "Finance", "GP Connect", "NHS Spine", "CQC Portal",
@@ -21,12 +129,20 @@ export default function SystemsPage() {
   return (
     <>
       {/* 1, Hero */}
-      <Hero
-        variant="type"
-        eyebrow="Our systems"
-        headline="Software built for the way care actually runs."
-        subheadline="Four proprietary platforms and a custom-build capability, all designed exclusively for the UK care sector."
-      />
+      <div className="grid min-h-[70vh] lg:grid-cols-2">
+        <div className="order-2 flex flex-col justify-center px-6 py-16 lg:order-1 lg:px-20 lg:py-24">
+          <p className="text-small font-semibold uppercase tracking-widest text-ink-muted mb-4 animate-hero-enter">Our systems</p>
+          <h1 className="text-display-2 font-heading font-bold text-ink animate-hero-enter [animation-delay:100ms]">
+            Software built for the way care actually runs.
+          </h1>
+          <p className="text-body-lg text-ink-muted mt-6 max-w-lg animate-hero-enter [animation-delay:200ms]">
+            Four proprietary platforms and a custom-build capability, all designed exclusively for the UK care sector.
+          </p>
+        </div>
+        <div className="order-1 flex items-center justify-center bg-surface-alt px-8 py-12 lg:order-2 lg:px-16">
+          <SystemsHeroMockup />
+        </div>
+      </div>
 
       {/* 2, CareStream block */}
       {/* PLACEHOLDER: real CareStream copy, logo, screenshot */}
@@ -35,7 +151,7 @@ export default function SystemsPage() {
           imageSide="left"
           logo={{ src: "/carestream-logo.png", alt: "CareStream AI", width: 434, height: 130 }}
           headline="The care management platform built around your staff."
-          body="[PLACEHOLDER, CareStream product description. What it does, who it's for, and the key problems it solves. Real copy pending from TRG Digital.]"
+          body="CareStream gives your care team instant, accurate answers to policy questions — by chat or email, grounded in your own uploaded documents and cited back to the source. Staff ask in any of 70+ languages, every query is logged automatically, and a CQC inspection evidence pack is generated on demand."
           cta={{ label: "Explore CareStream", href: "/systems/carestream" }}
           image={{ src: "/images/hero-carestream.jpg", alt: "Caregiver supporting a patient", width: 960, height: 560 }}
         />
@@ -48,7 +164,7 @@ export default function SystemsPage() {
           imageSide="right"
           logo={{ src: "/careassura-logo.png", alt: "CareAssura", width: 449, height: 266 }}
           headline="Get found by families who need you."
-          body="[PLACEHOLDER, CareAssura product description. What it does, who it's for, and the key problems it solves. Real copy pending from TRG Digital.]"
+          body="CareAssura gives your home a managed directory profile that ranks in local search, so families looking for care in your area find you before they find your competitors. Rich care home profiles, review management, an interactive map explorer, and a provider dashboard — all built to turn online visibility into enquiries."
           cta={{ label: "Explore CareAssura", href: "/systems/careassura" }}
           image={{ src: "/images/hero-careassura.jpg", alt: "Team collaborating on care planning", width: 960, height: 560 }}
         />
