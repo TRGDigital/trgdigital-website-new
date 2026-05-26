@@ -1,7 +1,7 @@
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 import { buildMetadata } from "@/lib/seo"
-import { Hero } from "@/components/sections/hero"
 import { CtaBand } from "@/components/sections/cta-band"
-import { FeatureBlock } from "@/components/sections/feature-block"
 import { Section } from "@/components/primitives/section"
 import { Container } from "@/components/primitives/container"
 import { FadeIn } from "@/components/ui/fade-in"
@@ -12,6 +12,146 @@ export const metadata = buildMetadata({
   description: "[PRODUCT NAME] connects care homes directly to families searching for care. Turn your listing on when you have beds, off when you're full. Pay only for the enquiries you receive.",
   path: "/systems/[product-slug]",
 })
+
+function HeroMockups() {
+  return (
+    <div className="relative h-[540px]">
+
+      {/* Google SERP — behind, top-right, rotated slightly right */}
+      <div className="absolute top-0 right-0 w-[360px] z-10" style={{ transform: "rotate(2deg)" }}>
+        <div className="rounded-xl border border-slate-200 bg-white shadow-xl overflow-hidden">
+          {/* Browser chrome */}
+          <div className="flex items-center gap-1.5 bg-slate-100 border-b border-slate-200 px-3 py-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+            <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
+            <div className="flex-1 mx-2 bg-white rounded-full border border-slate-200 px-3 py-1 flex items-center gap-1.5">
+              <svg className="w-2.5 h-2.5 text-slate-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              <span className="text-[9px] text-slate-500">care homes near me</span>
+            </div>
+          </div>
+          {/* Google logo + search bar row */}
+          <div className="px-4 pt-3 pb-2 flex items-center gap-3 border-b border-slate-100">
+            <div className="flex gap-0.5 shrink-0">
+              <span className="text-[11px] font-bold text-[#4285F4]">G</span>
+              <span className="text-[11px] font-bold text-[#EA4335]">o</span>
+              <span className="text-[11px] font-bold text-[#FBBC05]">o</span>
+              <span className="text-[11px] font-bold text-[#4285F4]">g</span>
+              <span className="text-[11px] font-bold text-[#34A853]">l</span>
+              <span className="text-[11px] font-bold text-[#EA4335]">e</span>
+            </div>
+            <div className="flex gap-3 text-[9px] text-slate-500">
+              <span className="text-blue-600 border-b-2 border-blue-600 pb-1">All</span>
+              <span>Images</span>
+              <span>Maps</span>
+              <span>More</span>
+            </div>
+          </div>
+          {/* Sponsored ad */}
+          <div className="px-4 pt-3 pb-2">
+            <p className="text-[8px] text-slate-400 mb-2">Sponsored</p>
+            <div className="mb-3">
+              <div className="flex items-center gap-1.5 mb-0.5">
+                <div className="w-4 h-4 rounded-sm bg-blue-100 flex items-center justify-center shrink-0">
+                  <span className="text-[7px] font-bold text-blue-600">C</span>
+                </div>
+                <div>
+                  <p className="text-[9px] text-slate-600 leading-none">trgdigital.co.uk</p>
+                  <p className="text-[8px] text-slate-400 leading-none">trgdigital.co.uk › care-homes › crossways</p>
+                </div>
+                <span className="ml-auto text-[7px] border border-slate-300 text-slate-500 px-1 py-0.5 rounded">Ad</span>
+              </div>
+              <p className="text-[11px] font-medium text-blue-700 mt-1 leading-snug">
+                Crossways Care Home — Beds Available Now
+              </p>
+              <p className="text-[9px] text-slate-600 mt-0.5 leading-relaxed">
+                Quality residential &amp; dementia care in your area. 3 beds available. Request a callback today. CQC Rated Good.
+              </p>
+              <div className="flex gap-2 mt-1.5">
+                {["Book a Visit", "See Fees", "Our Rooms"].map(s => (
+                  <span key={s} className="text-[8px] text-blue-600 underline">{s}</span>
+                ))}
+              </div>
+            </div>
+            <div className="border-t border-slate-100 pt-2 space-y-2">
+              {[
+                { title: "Crossways Care Home | CQC Rated Good | 41 Beds", url: "carehome.co.uk › crossways-care-home", desc: "Residential and dementia care in Dorset. Rated Good by CQC. 41-bed home with 24-hour care. View availability." },
+                { title: "Care Homes in Dorset | Compare & Contact Today", url: "carehomes.com › dorset", desc: "Find and compare rated care homes near you. Get free advice from our team. 2,400 care homes listed." },
+              ].map((r) => (
+                <div key={r.title}>
+                  <p className="text-[8px] text-slate-400">{r.url}</p>
+                  <p className="text-[10px] text-blue-700 font-medium leading-snug">{r.title}</p>
+                  <p className="text-[9px] text-slate-600 leading-relaxed">{r.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Landing page — front, bottom-left, rotated slightly left */}
+      <div className="absolute bottom-0 left-0 z-20 w-[260px]" style={{ transform: "rotate(-2.5deg)" }}>
+        <div className="rounded-xl border border-slate-200 bg-white shadow-2xl overflow-hidden">
+          {/* Browser chrome */}
+          <div className="flex items-center gap-1 bg-slate-100 border-b border-slate-200 px-2.5 py-1.5">
+            <span className="w-2 h-2 rounded-full bg-red-400" />
+            <span className="w-2 h-2 rounded-full bg-amber-400" />
+            <span className="w-2 h-2 rounded-full bg-green-400" />
+            <div className="flex-1 mx-1.5 bg-white rounded border border-slate-200 px-2 py-0.5">
+              <span className="text-[8px] text-slate-400 font-mono">trgdigital.co.uk/crossways</span>
+            </div>
+          </div>
+          {/* Nav */}
+          <div className="bg-white border-b border-slate-100 px-3 py-2 flex items-center justify-between">
+            <div className="w-16 h-3 bg-slate-200 rounded" />
+            <div className="flex gap-2">
+              {[1,2,3].map(i => <div key={i} className="w-8 h-2 bg-slate-100 rounded" />)}
+            </div>
+          </div>
+          {/* Hero band */}
+          <div className="bg-blue-700 px-3 py-3">
+            <p className="text-white text-[11px] font-bold leading-snug">Crossways Care Home</p>
+            <p className="text-blue-200 text-[9px] mt-0.5">Wareham, Dorset · Est. 1998</p>
+            <div className="flex gap-1.5 mt-2">
+              <span className="text-[8px] bg-green-500 text-white font-semibold px-1.5 py-0.5 rounded-full">CQC: Good</span>
+              <span className="text-[8px] bg-blue-500 text-white px-1.5 py-0.5 rounded-full">3 beds free</span>
+            </div>
+          </div>
+          {/* Content */}
+          <div className="px-3 py-2.5 space-y-2.5">
+            {/* Care types */}
+            <div>
+              <p className="text-[8px] font-semibold text-slate-600 mb-1">Care available</p>
+              <div className="flex flex-wrap gap-1">
+                {["Residential", "Dementia", "Respite"].map(t => (
+                  <span key={t} className="text-[7px] border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">{t}</span>
+                ))}
+              </div>
+            </div>
+            {/* Mini form */}
+            <div className="bg-blue-50 border border-blue-100 rounded-lg p-2">
+              <p className="text-[8px] font-bold text-blue-800 mb-1.5">Request a callback</p>
+              <div className="space-y-1.5">
+                {["Your name", "Phone number"].map(p => (
+                  <div key={p} className="bg-white border border-slate-200 rounded px-2 py-1">
+                    <p className="text-[8px] text-slate-400">{p}</p>
+                  </div>
+                ))}
+                <div className="bg-white border border-slate-200 rounded px-2 py-1">
+                  <p className="text-[8px] text-slate-400">Care needed ▾</p>
+                </div>
+              </div>
+              <div className="mt-2 bg-blue-600 text-white text-[8px] font-bold py-1.5 rounded text-center">
+                Send enquiry →
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  )
+}
 
 const FEATURES = [
   {
@@ -398,13 +538,36 @@ function EnquiryDashboardMockup() {
 export default function OnDemandEnquiryPage() {
   return (
     <>
-      <Hero
-        variant="type"
-        headline="Empty beds, filled on demand."
-        subheadline="[PRODUCT NAME] connects your home directly to families actively searching for care. You control when you appear. Every enquiry lands in your inbox, pre-qualified and ready to follow up."
-        primaryCta={{ label: "Book a demo", href: "/contact?subject=[product-slug]" }}
-        secondaryCta={{ label: "See how it works", href: "#how-it-works" }}
-      />
+      {/* Hero */}
+      <div className="grid min-h-[70vh] lg:grid-cols-2">
+        {/* Text */}
+        <div className="order-2 flex flex-col justify-center px-6 py-16 lg:order-1 lg:px-20 lg:py-24">
+          <h1 className="text-display-2 font-heading font-bold text-ink animate-hero-enter [animation-delay:100ms]">
+            Empty beds, filled on demand.
+          </h1>
+          <p className="text-body-lg text-ink-muted mt-6 max-w-lg animate-hero-enter [animation-delay:200ms]">
+            [PRODUCT NAME] connects your home directly to families actively searching for care. You control when you appear. Every enquiry lands in your inbox, pre-qualified and ready to follow up.
+          </p>
+          <div className="flex flex-wrap items-center gap-4 mt-8 animate-hero-enter [animation-delay:300ms]">
+            <Link
+              href="/contact?subject=[product-slug]"
+              className="inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 text-body font-semibold text-ink-inverse hover:bg-accent-hover transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-accent"
+            >
+              Book a demo <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+            <Link
+              href="#how-it-works"
+              className="text-body font-semibold text-ink underline underline-offset-4 hover:opacity-70 transition-opacity"
+            >
+              See how it works
+            </Link>
+          </div>
+        </div>
+        {/* Mockups */}
+        <div className="order-1 flex items-center justify-center bg-surface-alt px-8 py-12 lg:order-2 lg:px-16">
+          <HeroMockups />
+        </div>
+      </div>
 
       {/* Problem */}
       <Section variant="alt">
