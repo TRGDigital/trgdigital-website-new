@@ -13,6 +13,7 @@ const STATIC_PAGES: SitemapEntry[] = [
   { url: `${SITE.url}/systems/careassura`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
   { url: `${SITE.url}/systems/care-rota`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
   { url: `${SITE.url}/systems/custom`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+  { url: `${SITE.url}/systems/on-demand-enquiry`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
   { url: `${SITE.url}/marketing`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE.url}/contact`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
   { url: `${SITE.url}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },

@@ -11,7 +11,7 @@ import { CaseStudyCard } from "@/components/cards/case-study-card"
 import { Section } from "@/components/primitives/section"
 import { Container } from "@/components/primitives/container"
 import { FadeIn } from "@/components/ui/fade-in"
-import { getAllPosts, formatDate } from "@/lib/mdx"
+import { getAllPosts, formatDate, getReadingTime } from "@/lib/blog"
 import { TalkToUsButton } from "@/components/ui/talk-to-us-button"
 
 export const metadata: Metadata = {
@@ -43,6 +43,13 @@ const SYSTEMS = [
     description:
       "Dynamic rotas, time-and-attendance reconciliation, and payroll in one platform. Pay what was worked, not what was planned.",
     href: "/systems/care-rota",
+  },
+  {
+    name: "[PRODUCT NAME]",
+    tagline: "On-demand enquiry generation",
+    description:
+      "Fill empty beds on demand. Turn your listing on when you have availability, off when you're full. Pay only for the enquiries you receive.",
+    href: "/systems/on-demand-enquiry",
   },
   {
     name: "Custom Builds",
@@ -82,8 +89,8 @@ const PILLARS = [
   },
 ]
 
-export default function HomePage() {
-  const latestPosts = getAllPosts().slice(0, 3)
+export default async function HomePage() {
+  const latestPosts = (await getAllPosts()).slice(0, 3)
   return (
     <>
       {/* 1, Hero */}
@@ -236,8 +243,8 @@ export default function HomePage() {
                   tag={post.tags[0] ?? "Insights"}
                   title={post.title}
                   excerpt={post.description}
-                  date={formatDate(post.publishedAt)}
-                  readingTime={post.readingTime}
+                  date={formatDate(post.published_at)}
+                  readingTime={getReadingTime(post.content)}
                   href={`/blog/${post.slug}`}
                 />
               </FadeIn>
