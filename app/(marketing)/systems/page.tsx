@@ -140,7 +140,9 @@ export default function SystemsPage() {
           </p>
         </div>
         <div className="order-1 flex items-center justify-center bg-surface-alt px-4 py-8 lg:order-2 lg:px-10 lg:py-12">
-          <SystemsHeroMockup />
+          <div className="w-full">
+            <SystemsHeroMockup />
+          </div>
         </div>
       </div>
 
