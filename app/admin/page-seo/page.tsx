@@ -4,6 +4,25 @@ import { useEffect, useState } from "react"
 import { getBrowserClient } from "@/lib/supabase-browser"
 import type { PageSeo } from "@/lib/blog"
 
+const TITLE_LIMIT = 60
+const DESC_LIMIT = 156
+
+function CharCount({ value, limit }: { value: string; limit: number }) {
+  const len = value.length
+  const pct = len / limit
+  const color =
+    len > limit
+      ? "text-red-600"
+      : pct >= 0.9
+      ? "text-amber-500"
+      : "text-ink-subtle"
+  return (
+    <p className={`text-xs mt-1 text-right tabular-nums ${color}`}>
+      {len} / {limit}
+    </p>
+  )
+}
+
 export default function AdminPageSeoPage() {
   const [entries, setEntries] = useState<PageSeo[]>([])
   const [loading, setLoading] = useState(true)
@@ -57,6 +76,8 @@ export default function AdminPageSeoPage() {
             const draft = editing[entry.page]
             const dirty =
               draft?.title !== entry.title || draft?.description !== entry.description
+            const titleVal = draft?.title ?? ""
+            const descVal = draft?.description ?? ""
             return (
               <div key={entry.page} className="rounded-lg border border-border bg-white p-6">
                 <div className="flex items-center justify-between mb-4">
@@ -74,22 +95,28 @@ export default function AdminPageSeoPage() {
 
                 <div className="space-y-3">
                   <div>
-                    <label className="block text-small font-medium text-ink mb-1">Title</label>
+                    <label className="block text-small font-medium text-ink mb-1">
+                      Title
+                    </label>
                     <input
                       type="text"
-                      value={draft?.title ?? ""}
+                      value={titleVal}
                       onChange={(e) => handleChange(entry.page, "title", e.target.value)}
                       className={inputClass}
                     />
+                    <CharCount value={titleVal} limit={TITLE_LIMIT} />
                   </div>
                   <div>
-                    <label className="block text-small font-medium text-ink mb-1">Description</label>
+                    <label className="block text-small font-medium text-ink mb-1">
+                      Description
+                    </label>
                     <textarea
                       rows={2}
-                      value={draft?.description ?? ""}
+                      value={descVal}
                       onChange={(e) => handleChange(entry.page, "description", e.target.value)}
                       className={inputClass}
                     />
+                    <CharCount value={descVal} limit={DESC_LIMIT} />
                   </div>
                 </div>
               </div>
