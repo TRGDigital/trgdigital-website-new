@@ -25,7 +25,7 @@ export default function SystemsPage() {
         variant="type"
         eyebrow="Our systems"
         headline="Software built for the way care actually runs."
-        subheadline="Three proprietary platforms and a custom-build capability, all designed exclusively for the UK care sector."
+        subheadline="Four proprietary platforms and a custom-build capability, all designed exclusively for the UK care sector."
       />
 
       {/* 2, CareStream block */}
@@ -63,6 +63,17 @@ export default function SystemsPage() {
           body="CareRota links dynamic rota management, time-and-attendance, and payroll into one system — so UK care homes stop paying for hours that weren't worked, catch compliance issues before the rota goes live, and close the gap between planning and reality."
           cta={{ label: "Explore CareRota", href: "/systems/care-rota" }}
           image={{ src: "/images/feature-team.jpg", alt: "Care team at work", width: 960, height: 560 }}
+        />
+      </Section>
+
+      {/* 4, [PRODUCT NAME] block */}
+      <Section variant="default">
+        <FeatureBlock
+          imageSide="right"
+          eyebrow="[PRODUCT NAME]"
+          headline="Fill empty beds on demand, not on hope."
+          body="[PRODUCT NAME] connects your home directly to families actively searching for care in your area. Turn your listing on when you have beds to fill and off when you're full — paying only for the enquiries you receive. Every lead arrives pre-qualified with the family's care needs, urgency, and budget, so your team knows before they pick up the phone."
+          cta={{ label: "Explore [PRODUCT NAME]", href: "/systems/on-demand-enquiry" }}
         />
       </Section>
 
